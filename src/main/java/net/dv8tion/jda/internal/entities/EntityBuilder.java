@@ -222,8 +222,8 @@ public class EntityBuilder
         final DataArray channelArray = guildJson.getArray("channels");
         final DataArray threadArray = guildJson.getArray("threads");
         final DataArray emojisArray = guildJson.getArray("emojis");
-        final DataArray stickersArray = guildJson.getArray("stickers");
         final DataArray voiceStateArray = guildJson.getArray("voice_states");
+        final DataArray stickersArray = Optional.of(guildJson.getArray("stickers")).orElse(DataArray.empty());
         final Optional<DataArray> featuresArray = guildJson.optArray("features");
         final Optional<DataArray> presencesArray = guildJson.optArray("presences");
         final long ownerId = guildJson.getUnsignedLong("owner_id", 0L);
